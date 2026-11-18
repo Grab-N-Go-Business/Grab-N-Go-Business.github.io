@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grab-N-Go Lockers · Coming soon</title>
+<meta name="description" content="Secure, temperature-regulating pickup lockers for pharmacy, food and drink orders. Coming soon.">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0A0A0A"/><text x="50" y="62" font-family="Arial" font-weight="900" font-size="34" fill="#fff" text-anchor="middle">GNG</text></svg></template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Atkinson+Hyperlegible:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0;-webkit-font-smoothing:antialiased;background:#FFFFFF}a{color:inherit}a:hover{color:#A8213A}*{box-sizing:border-box}button{font-family:inherit;cursor:pointer}@keyframes gng-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}</style>
+</helmet>
+<div style="min-height:100vh">
+
+<sc-if value="{{ isD }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="3d Locker wall" style="min-height:100vh;background:#FFFFFF;color:#0A0A0A;font-family:'Archivo',sans-serif">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(20px,4vw,48px) clamp(16px,4vw,48px) 96px;display:flex;flex-direction:column;gap:clamp(40px,7vw,96px)">
+    <header style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-bottom:1px solid #0A0A0A;padding-bottom:18px">
+      <div aria-label="Grab-N-Go Heating &amp; Cooling Locker System" style="display:flex;align-items:center;gap:clamp(12px,2vw,18px);height:clamp(64px,9vw,88px)">
+        <div style="display:flex;align-items:center;gap:8px;height:100%">
+          <svg viewBox="-56 -56 112 112" style="height:62%;width:auto;aspect-ratio:1"><path d="M0 0L0 -50M0 -27L-15 -41M0 -27L15 -41M0 0L43.3 -25M23.4 -13.5L28 -33.5M23.4 -13.5L43 -7.5M0 0L43.3 25M23.4 13.5L43 7.5M23.4 13.5L28 33.5M0 0L0 50M0 27L15 41M0 27L-15 41M0 0L-43.3 25M-23.4 13.5L-28 33.5M-23.4 13.5L-43 7.5M0 0L-43.3 -25M-23.4 -13.5L-43 -7.5M-23.4 -13.5L-28 -33.5" fill="none" stroke="#02366C" style="stroke-width:9;stroke-linecap:round"></path></svg>
+          <div style="width:2px;height:72%;background:#55636D"></div>
+          <svg viewBox="-4 -2 92 106" style="height:62%;width:auto;aspect-ratio:92/106"><g fill="#A8213A"><path d="M18 0C8 12 -4 24 -2 38C0 54 13 58 14 72C15 84 13 93 12 100C24 94 35 84 34 70C33 54 17 48 18 34C19 22 20 10 18 0Z" transform="translate(2 20) scale(0.78)"></path><path d="M18 0C8 12 -4 24 -2 38C0 54 13 58 14 72C15 84 13 93 12 100C24 94 35 84 34 70C33 54 17 48 18 34C19 22 20 10 18 0Z" transform="translate(27 0)"></path><path d="M18 0C8 12 -4 24 -2 38C0 54 13 58 14 72C15 84 13 93 12 100C24 94 35 84 34 70C33 54 17 48 18 34C19 22 20 10 18 0Z" transform="translate(58 18) scale(0.78)"></path></g></svg>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(28px,4vw,38px);line-height:.9;letter-spacing:-0.045em;color:#0A0A0A">Grab-N-Go</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:500;font-size:clamp(10px,1.2vw,12px);letter-spacing:.14em;text-transform:uppercase;color:#333333">Heating &amp; cooling lockers</div>
+        </div>
+      </div>
+      <nav style="display:flex;gap:4px;flex-wrap:wrap;margin-left:auto">
+        <sc-for list="{{ navTabs }}" as="n" hint-placeholder-count="3">
+          <button onClick="{{ n.go }}" style="min-height:44px;padding:0 14px;border:none;background:none;font-family:'Archivo',sans-serif;font-size:15px;font-weight:{{ n.fw }};color:#0A0A0A;box-shadow:inset 0 -2px 0 {{ n.line }}" style-hover="box-shadow:inset 0 -2px 0 #0A0A0A">{{ n.label }}</button>
+        </sc-for>
+      </nav>
+      <a href="mailto:grabngolockers@proton.me" style="min-height:44px;display:flex;align-items:center;padding:0 18px;background:#0A0A0A;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none" style-hover="background:{{ accent }};color:#FFFFFF">Contact</a>
+    </header>
+    <sc-if value="{{ pLockers }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;flex-direction:column;gap:clamp(40px,7vw,96px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px 48px;align-items:end">
+      <h1 style="margin:0;font-weight:900;font-size:clamp(56px,10vw,128px);line-height:.9;letter-spacing:-0.045em">Open<br>a door.</h1>
+      <p style="margin:0;font-size:18px;line-height:1.6;max-width:44ch;color:#333333">Secure, temperature-regulating pickup lockers. Each door holds one thing about us. Tap to open.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:flex-end;align-items:center;font-size:14px;font-variant-numeric:tabular-nums;border-bottom:1px solid #0A0A0A;padding-bottom:10px"><button onClick="{{ toggleAll }}" style="border:none;background:none;font-size:14px;font-weight:700;text-decoration:underline;min-height:40px;padding:0;color:#0A0A0A">{{ allLabel }}</button></div>
+      <div style="display:grid;grid-template-columns:{{ lockerCols }};grid-auto-rows:minmax(340px,auto);gap:8px">
+        <sc-for list="{{ lockers }}" as="L" hint-placeholder-count="8">
+          <div style="position:relative;border:1px solid #0A0A0A;background:#F5F5F3;grid-row:{{ L.row }};perspective:1200px;perspective-origin:left center;overflow:hidden">
+            <div style="position:relative;height:100%;min-height:300px;background:linear-gradient(180deg,#9EA3A8,#7D8288);padding:10px;overflow:hidden">
+              <div style="position:relative;height:100%;background:{{ L.wall }};box-shadow:inset 0 0 0 1px rgba(0,0,0,.35);overflow:hidden">
+                <div style="position:absolute;inset:0;background:linear-gradient(180deg,#2E3135,#3A3E42);clip-path:polygon(0 0,100% 0,92% 6%,8% 6%)"></div>
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,#33363A,#45494E);clip-path:polygon(0 0,8% 6%,8% 84%,0 100%)"></div>
+                <div style="position:absolute;inset:0;background:linear-gradient(270deg,#2F3236,#43474B);clip-path:polygon(100% 0,92% 6%,92% 84%,100% 100%)"></div>
+                <div style="position:absolute;inset:0;background:linear-gradient(180deg,#6C7177,#8E9399 60%,#7A7F85);clip-path:polygon(8% 84%,92% 84%,100% 100%,0 100%)"></div>
+                <div style="position:absolute;left:3%;right:3%;top:30%;height:10px;background:linear-gradient(180deg,#C9CDD1,#9A9EA3 55%,#6F7378);box-shadow:0 10px 14px -4px rgba(0,0,0,.45)"></div>
+                <div style="position:absolute;left:12px;top:36%;width:6px;height:22px;border-radius:3px;background:linear-gradient(90deg,#B8BCC1,#7F8489)"></div>
+                <div style="position:absolute;left:0;right:0;top:6%;height:24%;padding:0 12%;display:flex;align-items:center">
+                  <div style="font-size:{{ L.size }};line-height:1.1;font-weight:{{ L.weight }};letter-spacing:-0.02em;color:#F4F5F6;text-wrap:balance">{{ L.body }}</div>
+                </div>
+                <sc-if value="{{ L.hasItems }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:0;right:0;bottom:9%;display:flex;justify-content:center;align-items:flex-end">
+                    <sc-if value="{{ L.isBag }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;align-items:center;margin:0 0;position:relative;z-index:1">
+                          <img src="assets/illustrations/pickup-bag.svg" alt="Pharmacy pickup bag" style="width:clamp(90px,10vw,118px);height:auto;display:block;position:relative;z-index:1;-webkit-box-reflect:below 1px linear-gradient(transparent 78%,rgba(255,255,255,.22))">
+                          <div style="width:110%;height:12px;margin-top:-7px;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%)"></div>
+                        </div></sc-if>
+                      <sc-if value="{{ L.isMix }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;align-items:center;margin:0 -6px;position:relative;z-index:3">
+                          <img src="assets/illustrations/medicine.svg" alt="Medicine bottle and pills" style="width:clamp(70px,8vw,92px);height:auto;display:block;position:relative;z-index:1;-webkit-box-reflect:below 1px linear-gradient(transparent 78%,rgba(255,255,255,.22))">
+                          <div style="width:110%;height:12px;margin-top:-7px;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%)"></div>
+                        </div><div style="display:flex;flex-direction:column;align-items:center;margin:0 -6px;position:relative;z-index:2">
+                          <img src="assets/illustrations/drink.svg" alt="Cold drink" style="width:clamp(62px,7vw,80px);height:auto;display:block;position:relative;z-index:1;-webkit-box-reflect:below 1px linear-gradient(transparent 78%,rgba(255,255,255,.22))">
+                          <div style="width:110%;height:12px;margin-top:-7px;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%)"></div>
+                        </div><div style="display:flex;flex-direction:column;align-items:center;margin:0 -6px;position:relative;z-index:1">
+                          <img src="assets/illustrations/food.svg" alt="Burger" style="width:clamp(64px,7.2vw,84px);height:auto;display:block;position:relative;z-index:1;-webkit-box-reflect:below 1px linear-gradient(transparent 78%,rgba(255,255,255,.22))">
+                          <div style="width:110%;height:12px;margin-top:-7px;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%)"></div>
+                        </div></sc-if>
+                      <sc-if value="{{ L.isLog }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;align-items:center;margin:0 0;position:relative;z-index:1">
+                          <img src="assets/illustrations/log.svg" alt="Clipboard log and thermometer" style="width:clamp(90px,10vw,118px);height:auto;display:block;position:relative;z-index:1;-webkit-box-reflect:below 1px linear-gradient(transparent 78%,rgba(255,255,255,.22))">
+                          <div style="width:110%;height:12px;margin-top:-7px;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%)"></div>
+                        </div></sc-if>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ L.hasLink }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:0;right:0;bottom:9%;display:flex;justify-content:center;align-items:flex-end;gap:3px">
+                    <sc-for list="{{ L.links }}" as="k" hint-placeholder-count="4">
+                      <a href="{{ k.href }}" target="{{ k.target }}" rel="noopener" aria-label="{{ k.aria }}" style="position:relative;width:{{ k.w }};height:{{ k.h }};background:{{ k.bg }};color:{{ k.fg }};text-decoration:none;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:3px 3px 2px 2px;box-shadow:inset 3px 0 0 rgba(255,255,255,.18),inset -4px 0 0 rgba(0,0,0,.22),0 8px 10px -6px rgba(0,0,0,.6);transform:{{ k.tf }};transform-origin:bottom left;transition:transform .2s ease;margin-left:{{ k.ml }}" style-hover="transform:translateY(-10px)">
+                        <span style="position:absolute;left:6px;right:6px;top:12px;height:2px;background:currentColor;opacity:.55"></span>
+                        <span style="position:absolute;left:6px;right:6px;top:18px;height:2px;background:currentColor;opacity:.55"></span>
+                        <span style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:clamp(15px,1.6vw,18px);font-weight:800;letter-spacing:.04em;text-transform:uppercase">{{ k.label }}</span>
+                        <span style="position:absolute;left:6px;right:6px;bottom:14px;height:2px;background:currentColor;opacity:.55"></span>
+                      </a>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+            <button onClick="{{ L.toggle }}" aria-label="{{ L.aria }}" style="position:absolute;inset:0;z-index:20;border:none;background:#FFFFFF;box-shadow:inset 0 0 0 1px #0A0A0A;padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;text-align:left;transform-origin:left center;transform:{{ L.tf }};transition:transform .7s cubic-bezier(.2,.7,.2,1);pointer-events:{{ L.pe }};font-family:'Archivo',sans-serif;color:#0A0A0A" style-hover="background:#F5F5F3">
+              <span style="font-size:clamp(56px,7vw,80px);font-weight:900;line-height:.85;letter-spacing:-0.04em;font-variant-numeric:tabular-nums">{{ L.num }}</span>
+              <span style="width:100%;display:flex;justify-content:space-between;align-items:center;font-size:clamp(20px,2.2vw,24px);font-weight:700"><span>{{ L.label }}</span><span style="width:8px;height:40px;border:1px solid #0A0A0A;border-radius:4px"></span></span>
+            </button>
+            <sc-if value="{{ L.isOpen }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ L.toggle }}" style="position:absolute;top:16px;right:18px;z-index:21;border:none;background:none;font-size:13px;font-weight:700;color:#F4F5F6;min-height:32px;padding:0 4px;text-decoration:underline">Close</button>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ pReceipt }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,6vw,80px);align-items:flex-start">
+      <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:22px">
+        <h1 style="margin:0;font-weight:900;font-size:clamp(44px,7vw,92px);line-height:1.04;letter-spacing:-0.035em;text-wrap:balance">Every pickup leaves a trail.</h1>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#333333;max-width:46ch">Each locker records every collection and temperature reading automatically. Here's a sample log.</p>
+      </div>
+      <div style="flex:0 1 420px;width:100%;background:#F5F5F3;border:1px solid #0A0A0A;padding:24px 20px 32px;display:flex;justify-content:center;font-family:'IBM Plex Mono',monospace;color:#141414">
+        <div style="flex:0 1 400px;width:100%;display:flex;flex-direction:column">
+      <div style="height:14px;background:#0A0A0A"></div>
+      <div style="overflow:hidden;margin:0 10px">
+        <div style="transform:{{ rcptY }};transition:{{ rcptT }}">
+          <div style="background:#FFFFFF;padding:28px 24px 18px;display:flex;flex-direction:column;gap:16px;font-size:14px;line-height:1.5">
+            <div style="text-align:center;display:flex;flex-direction:column;gap:2px"><strong style="font-size:18px;letter-spacing:1px">GRAB-N-GO LOCKERS</strong><span>PICKUP RECEIPT</span><span>STATUS: COMING SOON</span></div>
+            <div style="border-top:1px dashed #141414"></div>
+            <div style="display:grid;grid-template-columns:auto 1fr;gap:2px 14px;font-variant-numeric:tabular-nums"><span>LOCKER</span><span style="text-align:right">07</span><span>ORDER</span><span style="text-align:right">{{ rOrder }}</span><span>COMPARTMENT</span><span style="text-align:right">{{ rMode }}</span><span>ACCESS</span><span style="text-align:right">CODE ****</span></div>
+            <div style="border-top:1px dashed #141414"></div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div style="display:flex;justify-content:space-between"><strong>TEMP LOG</strong><span>SAMPLE</span></div>
+              <sc-for list="{{ rLog }}" as="r" hint-placeholder-count="5">
+                <div style="display:flex;justify-content:space-between;font-variant-numeric:tabular-nums"><span>{{ r.t }}</span><span>{{ r.ev }}</span><span>{{ r.v }}</span></div>
+              </sc-for>
+            </div>
+            <div style="border-top:1px dashed #141414"></div>
+            <p style="margin:0;font-size:13px;line-height:1.6">Grab-N-Go builds secure, temperature-regulating prescription pickup lockers. Staff load from behind the counter; patients collect with a code, on their own schedule. Cooled compartments are designed for refrigerated medicines, and every collection and temperature reading is logged automatically.</p>
+            
+            <div style="height:46px;margin-top:6px;background:repeating-linear-gradient(90deg,#141414 0 2px,transparent 2px 4px,#141414 4px 7px,transparent 7px 8px,#141414 8px 9px,transparent 9px 12px)"></div>
+            <div style="text-align:center;font-size:12px">THANK YOU · SEE YOU SOON</div>
+          </div>
+          <div style="height:12px;background:linear-gradient(-45deg,transparent 8px,#FFFFFF 0) 0 0/16px 16px repeat-x,linear-gradient(45deg,transparent 8px,#FFFFFF 0) 0 0/16px 16px repeat-x"></div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ pSecurity }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:clamp(32px,5vw,56px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px 48px;align-items:end">
+        <h1 style="margin:0;font-weight:900;font-size:clamp(56px,10vw,128px);line-height:.9;letter-spacing:-0.045em">One code.</h1>
+        <p style="margin:0;font-size:18px;line-height:1.6;max-width:44ch;color:#333333">Try the keypad and watch what the locker does behind the door. Enter <strong style="font-family:'IBM Plex Mono',monospace;color:#0A0A0A">2468</strong>, or a wrong code three times.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:8px">
+        <div style="border:1px solid #0A0A0A;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700"><span>07 / Keypad</span><span style="color:{{ secTone }}">{{ secStatus }}</span></div>
+          <div style="display:flex;gap:8px;animation:{{ secShake }}">
+            <sc-for list="{{ secSlots }}" as="s" hint-placeholder-count="4">
+              <div style="flex:1;height:64px;border:1px solid #0A0A0A;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600">{{ s.ch }}</div>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+            <sc-for list="{{ secKeys }}" as="k" hint-placeholder-count="12">
+              <button onClick="{{ k.press }}" style="min-height:56px;border:1px solid #0A0A0A;background:#FFFFFF;font-family:'Archivo',sans-serif;font-size:20px;font-weight:700;color:#0A0A0A" style-hover="background:#F5F5F3" style-active="background:#0A0A0A;color:#FFFFFF">{{ k.label }}</button>
+            </sc-for>
+          </div>
+          <button onClick="{{ secReset }}" style="align-self:flex-start;border:none;background:none;font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;text-decoration:underline;min-height:40px;padding:0;color:#0A0A0A">Reset demo</button>
+        </div>
+        <div style="background:#0A0A0A;color:#E5E5E5;display:flex;flex-direction:column;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;min-width:0">
+          <div style="padding:12px 16px;border-bottom:1px solid #262626;display:flex;justify-content:space-between;color:#A3A3A3;font-size:12px"><span>locker.js</span><span>Simplified example</span></div>
+          <div style="padding:12px 0;overflow-x:auto">
+            <sc-for list="{{ codeLines }}" as="c" hint-placeholder-count="14">
+              <div style="display:flex;gap:16px;padding:0 16px;background:{{ c.bg }};white-space:pre;transition:background .3s"><span style="color:#737373;min-width:18px;text-align:right">{{ c.n }}</span><span style="color:{{ c.fg }}">{{ c.text }}</span></div>
+            </sc-for>
+          </div>
+          <div style="border-top:1px solid #262626;padding:12px 16px;display:flex;flex-direction:column;gap:2px;min-height:150px">
+            <div style="color:#A3A3A3;font-size:12px;margin-bottom:4px">Event log</div>
+            <sc-for list="{{ secLog }}" as="l" hint-placeholder-count="2">
+              <div style="display:flex;gap:12px;font-variant-numeric:tabular-nums"><span style="color:#737373">{{ l.t }}</span><span style="color:{{ l.fg }}">{{ l.msg }}</span></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+    <footer style="display:flex;flex-direction:column;gap:20px;border-top:6px solid #0A0A0A;padding-top:18px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px">
+        <div style="font-weight:900;font-size:calc(clamp(64px,9vw,88px) / 0.69);line-height:.9;letter-spacing:-0.045em">Coming soon.</div>
+        <div style="font-size:14px;color:#333333;font-variant-numeric:tabular-nums;padding-bottom:6px;margin-left:auto">© 2026 Grab-N-Go Lockers</div>
+      </div>
+    </footer>
+  </div>
+</div>
+</sc-if>
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#A8213A&quot;,&quot;options&quot;:[&quot;#A8213A&quot;,&quot;#02366C&quot;,&quot;#0A0A0A&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;3d Locker wall&quot;},&quot;columns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;4&quot;],&quot;default&quot;:&quot;2&quot;,&quot;tsType&quot;:&quot;'2' | '4'&quot;,&quot;section&quot;:&quot;3d Locker wall&quot;},&quot;startOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;3d Locker wall&quot;},&quot;switcherSide&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;right&quot;],&quot;default&quot;:&quot;right&quot;,&quot;tsType&quot;:&quot;'left' | 'right'&quot;,&quot;section&quot;:&quot;Page&quot;}}">
+class Component extends DCLogic {
+  state = { dir: 'd', code: '', open: false, wrong: false, torn: false, mode: 'cool', printed: true, instant: true, doors: {}, page: 'lockers', sc: '', sAtt: 0, sLock: false, sOpen: false, sRes: '', sWrong: false, sLog: [] };
+  componentDidMount() { if (this.state.dir === 'c') this.reprint(); }
+  go(d) {
+    localStorage.setItem('gng-v2-dir', d);
+    this.setState({ dir: d }); window.scrollTo(0, 0);
+    if (d === 'c') this.reprint();
+  }
+  goPage(p) { this.setState({ page: p }); window.scrollTo(0, 0); if (p === 'receipt') this.reprint(); }
+  slog(entries) { const t = new Date().toTimeString().slice(0, 8); this.setState(x => ({ sLog: [...x.sLog, ...entries.map(([msg, fg]) => ({ t, msg, fg }))].slice(-6) })); }
+  secPress(k) {
+    const s = this.state;
+    if (s.sOpen) return;
+    if (k === 'C') return this.setState({ sc: '' });
+    if (k === 'OK') return this.secCheck(s.sc);
+    if (s.sc.length >= 4) return;
+    const sc = s.sc + k; this.setState({ sc });
+    if (sc.length === 4) setTimeout(() => this.secCheck(sc), 250);
+  }
+  secCheck(code) {
+    const s = this.state;
+    if (s.sLock) { this.setState({ sc: '', sRes: 'locked' }); return this.slog([['DENIED · locker is locked', '#F87171']]); }
+    if (code === '2468') {
+      this.setState({ sOpen: true, sRes: 'ok' });
+      this.slog([['CODE ACCEPTED', '#86EFAC'], ['DOOR 07 UNLOCKED', '#86EFAC'], ['CODE INVALIDATED · one-time use', '#E5E5E5'], ['COLLECTED · 4.1 °C at pickup', '#E5E5E5']]);
+    } else {
+      const a = s.sAtt + 1, lock = a >= 3;
+      this.setState({ sAtt: a, sLock: lock, sRes: lock ? 'locked' : 'wrong', sWrong: true });
+      this.slog(lock ? [['WRONG CODE · attempt 3 of 3', '#F87171'], ['LOCKER 07 LOCKED · staff alerted', '#F87171']] : [['WRONG CODE · attempt ' + a + ' of 3', '#FBBF24']]);
+      setTimeout(() => this.setState({ sc: '', sWrong: false }), 700);
+    }
+  }
+  reprint() {
+    this.setState({ printed: false, instant: true });
+    setTimeout(() => this.setState({ printed: true, instant: false }), 60);
+  }
+  press(k) {
+    const s = this.state;
+    if (s.open) return;
+    if (k === 'C') return this.setState({ code: '', wrong: false });
+    if (k === 'OK') return this.check(s.code);
+    if (s.code.length >= 4) return;
+    const code = s.code + k;
+    this.setState({ code, wrong: false });
+    if (code.length === 4) setTimeout(() => this.check(code), 250);
+  }
+  check(code) {
+    if (code === '2468') this.setState({ open: true });
+    else { this.setState({ wrong: true }); setTimeout(() => this.setState({ code: '', wrong: false }), 900); }
+  }
+  renderVals() {
+    const s = this.state, cool = s.mode === 'cool';
+    const names = { a: 'Comic', b: 'Apothecary', c: 'Receipt', d: 'Locker wall' };
+    const tabs = ['a', 'b', 'c', 'd'].map(d => ({ id: '3' + d, name: names[d], go: () => this.go(d), bg: s.dir === d ? '#141414' : '#FFFFFF', fg: s.dir === d ? '#FFFFFF' : '#141414' }));
+    const keys = ['1','2','3','4','5','6','7','8','9','C','0','OK'].map(k => ({ label: k, press: () => this.press(k) }));
+    const p = this.props, accent = p.accent ?? '#A8213A', startOpen = p.startOpen ?? false;
+    const isO = i => s.doors[i] ?? startOpen;
+    const L = [
+      { label: 'What it is', body: 'Pick up with a code. Anytime.', size: 'clamp(26px,3vw,34px)', weight: 700, imgs: [['pickup-bag', 'Pharmacy pickup bag']] },
+      { label: 'Medicine, food & drinks', body: 'Kept cold or warm until pickup.', inBg: '#02366C', size: 'clamp(26px,3vw,34px)', weight: 700, cold: true, imgs: [['medicine', 'Medicine bottle and pills', 'clamp(70px,8vw,92px)'], ['drink', 'Cold drink', 'clamp(62px,7vw,80px)'], ['food', 'Burger', 'clamp(64px,7.2vw,84px)']] },
+      { label: 'Logged', body: 'Every pickup and temperature, recorded.', size: 'clamp(26px,3vw,34px)', weight: 700, imgs: [['log', 'Clipboard log and thermometer']] },
+      { label: 'Get in touch', body: 'Say hello.', inBg: accent, size: 'clamp(26px,3vw,34px)', weight: 700, links: [
+        { label: 'Email', href: 'mailto:grabngolockers@proton.me', bg: '#A8213A', fg: '#FFFFFF', w: 'clamp(46px,5vw,58px)', h: 'clamp(132px,15vw,168px)' },
+        { label: 'Call', href: 'tel:+18049334543', bg: '#02366C', fg: '#FFFFFF', w: 'clamp(44px,4.6vw,54px)', h: 'clamp(118px,13vw,148px)' },
+        { label: 'Text', href: 'sms:+18049334543', bg: '#EFE6D2', fg: '#1F2A33', w: 'clamp(44px,4.8vw,56px)', h: 'clamp(126px,14vw,158px)' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/company/grab-n-go-lockers/', blank: true, bg: '#2B2F33', fg: '#F4F5F6', w: 'clamp(46px,5vw,58px)', h: 'clamp(140px,15.5vw,172px)', lean: true }
+      ] }
+    ];
+    const openCount = L.filter((_, i) => isO(i)).length;
+    const lockers = L.map((l, i) => {
+      const o = isO(i), dark = !!l.inBg;
+      return {
+        num: String(i + 1).padStart(2, '0'), label: l.label, body: l.body, row: l.row || 'span 1',
+        size: l.size || '18px', weight: l.weight || 400, inBg: '#F5F5F3', inFg: l.cold ? '#02366C' : '#0A0A0A',
+        hasLink: !!l.links, hasItems: !!l.imgs, noItems: !l.imgs, overlap: l.imgs && l.imgs.length > 1 ? '-6px' : '0', disp: l.disp || '', isBag: i === 0, isMix: i === 1, isLog: i === 2, wall: l.cold ? 'radial-gradient(ellipse at 50% 45%,#5D7690,#344A61 85%)' : 'radial-gradient(ellipse at 50% 45%,#6F7479,#474B50 85%)', floor: l.cold ? 'linear-gradient(180deg,#C9D8E7,#A9BCD0)' : 'linear-gradient(180deg,#D3D6D9,#B7BBBF)',
+        imgs: (l.imgs || []).map(([n, alt, w], j) => ({ src: 'assets/illustrations/' + n + '.svg', alt, w: w || 'clamp(90px,10vw,118px)', z: 10 - j })), links: (l.links || []).map(k => ({ ...k, target: k.blank ? '_blank' : '_self', aria: k.label + ' Grab-N-Go', tf: k.lean ? 'rotate(-7deg)' : 'none', ml: k.lean ? '8px' : '0' })),
+        isOpen: o, tf: o ? 'rotateY(-100deg)' : 'rotateY(0deg)', pe: o ? 'none' : 'auto', aria: 'Open locker ' + (i + 1) + ': ' + l.label,
+        toggle: () => this.setState(x => ({ doors: { ...x.doors, [i]: !(x.doors[i] ?? startOpen) } }))
+      };
+    });
+    const log = cool
+      ? [['09:12', 'LOADED', '4.2 °C'], ['11:00', 'READING', '4.0 °C'], ['13:00', 'READING', '4.1 °C'], ['15:00', 'READING', '3.9 °C'], ['17:48', 'COLLECTED', '4.1 °C']]
+      : [['11:40', 'LOADED', '64.5 °C'], ['11:50', 'READING', '64.1 °C'], ['12:00', 'READING', '63.8 °C'], ['12:10', 'READING', '63.9 °C'], ['12:14', 'COLLECTED', '63.6 °C']];
+    const P = s.page;
+    const navTabs = [['lockers', 'Lockers'], ['receipt', 'Know more'], ['security', 'Security']].map(([id, label]) => ({ label, go: () => this.goPage(id), fw: P === id ? 700 : 500, line: P === id ? '#0A0A0A' : 'transparent' }));
+    const CL = [
+      ['function openLocker(locker, code) {', ''],
+      ['  if (locker.locked) return deny("locked");', 'locked'],
+      ['  if (!matches(code, locker.codeHash)) {', 'wrong'],
+      ['    locker.attempts += 1;', 'wrong'],
+      ['    if (locker.attempts >= 3) lockAndAlert(locker);', 'locknow'],
+      ['    return deny("wrong code");', 'wrong'],
+      ['  }', ''],
+      ['  unlock(locker.door);', 'ok'],
+      ['  invalidate(locker.code);  // one-time use', 'ok'],
+      ['  log("collected", locker.id, readTemp(locker));', 'ok'],
+      ['}', '']
+    ];
+    const hl = t => t && (t === s.sRes || (t === 'wrong' && s.sRes === 'locked' && s.sAtt >= 3 && !s.sLog.some(l => l.msg.startsWith('DENIED'))) || (t === 'locknow' && s.sRes === 'locked' && !s.sLog.some(l => l.msg.startsWith('DENIED'))));
+    const codeLines = CL.map(([text, tag], i) => ({ n: i + 1, text, bg: hl(tag) ? (s.sRes === 'ok' ? 'rgba(134,239,172,.14)' : 'rgba(248,113,113,.16)') : 'transparent', fg: text.includes('//') ? '#A3A3A3' : '#E5E5E5' }));
+    return {
+      pLockers: P === 'lockers', pReceipt: P === 'receipt', pSecurity: P === 'security', navTabs, codeLines,
+      secKeys: ['1','2','3','4','5','6','7','8','9','C','0','OK'].map(k => ({ label: k, press: () => this.secPress(k) })),
+      secSlots: [0,1,2,3].map(i => ({ ch: s.sc[i] ? '•' : '' })),
+      secStatus: s.sOpen ? 'Unlocked' : s.sLock ? 'Locked' : s.sAtt ? (3 - s.sAtt) + ' tries left' : 'Ready',
+      secTone: s.sOpen ? '#15803D' : s.sLock ? '#B91C1C' : '#0A0A0A',
+      secShake: s.sWrong ? 'gng-shake .35s ease 2' : 'none',
+      secLog: s.sLog.length ? s.sLog : [{ t: '--:--:--', msg: 'Waiting for a code…', fg: '#737373' }],
+      secReset: () => this.setState({ sc: '', sAtt: 0, sLock: false, sOpen: false, sRes: '', sLog: [] }),
+      isA: s.dir === 'a', isB: s.dir === 'b', isC: s.dir === 'c', isD: s.dir === 'd', tabs,
+      keys, slots: [0,1,2,3].map(i => ({ ch: s.code[i] || '' })), open: s.open,
+      doorTf: s.open ? 'rotateY(-104deg)' : 'rotateY(0deg)', doorPe: s.open ? 'none' : 'auto',
+      led: s.wrong ? '#A8213A' : s.open ? '#2E9E6B' : '#FFFFFF',
+      msg: s.wrong ? 'Nope! Try again' : s.open ? 'It opened!' : 'Enter code', msgColor: s.wrong ? '#A8213A' : '#111111',
+      shake: s.wrong ? 'gng-shake .35s ease 2' : 'none',
+      closeDoor: () => this.setState({ open: false, code: '' }),
+      tear: () => this.setState({ torn: true }),
+      ticketTf: s.torn ? 'translateY(140%) rotate(14deg)' : 'none', ticketOp: s.torn ? 0 : 1, ticketPe: s.torn ? 'none' : 'auto',
+      setCool: () => this.setState({ mode: 'cool' }), setWarm: () => this.setState({ mode: 'warm' }), reprint: () => this.reprint(),
+      coolBg: cool ? '#141414' : '#FFFFFF', coolFg: cool ? '#FFFFFF' : '#141414', warmBg: cool ? '#FFFFFF' : '#141414', warmFg: cool ? '#141414' : '#FFFFFF',
+      rMode: cool ? 'COOLED' : 'HEATED', rOrder: cool ? 'PRESCRIPTION' : 'FOOD ORDER',
+      rLog: log.map(([t, ev, v]) => ({ t, ev, v })),
+      rcptY: s.printed ? 'translateY(0)' : 'translateY(-100%)', rcptT: s.instant ? 'none' : 'transform 2.6s steps(26)',
+      lockers, openCount, accent,
+      lockerCols: (p.columns ?? '2') === '4' ? 'repeat(auto-fit,minmax(min(100%,220px),1fr))' : 'repeat(auto-fit,minmax(min(100%,420px),1fr))',
+      switcherPos: (p.switcherSide ?? 'right') === 'right' ? 'right:12px' : 'left:12px', allLabel: openCount === L.length ? 'Close all' : 'Open all',
+      toggleAll: () => { const all = openCount === L.length; const d = {}; L.forEach((_, i) => d[i] = !all); this.setState({ doors: d }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
